@@ -1,9 +1,9 @@
-Feature: Price Filter
+Feature: Product Filtering by Price
 
-  Scenario: User selects a product from the selected price filter
+Scenario: user should see the list of products from the selected price filter
     Given the user opens the BookCart Application
-    Given User clicks on the login button
-    Given User enters username
-    Given User enters password
-    Given User clicks on Login button
-    Then User should be able to Adjust the Pricing and add the items
+    And User enters username
+    And User enters password
+    When User clicks on Login button
+    Then the user adjusts the price filter settings and display the products
+ 

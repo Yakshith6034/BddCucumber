@@ -1,8 +1,7 @@
 package StepDefinition;
 
 import java.util.List;
-
-
+import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -114,7 +113,7 @@ public class AddToCart {
             for (WebElement Element : CartItems) 
             {
                 String elementText = Element.getText();
-                System.out.println("SearchedProduct:" + elementText);
+               // System.out.println("SearchedProduct:" + elementText);
              
 
                 if (elementText.equals("Roomies")) 
@@ -158,7 +157,7 @@ public class AddToCart {
              for (WebElement Element : CartItems) 
              {
                  String elementText = Element.getText();
-                 System.out.println("SearchedProduct:" + elementText);
+                 //System.out.println("SearchedProduct:" + elementText);
               
 
                  if (elementText.equals("Roomies")) 
@@ -187,64 +186,47 @@ public class AddToCart {
     @When("the user removes the item from the cart")
     public void the_user_removes_the_item_from_the_cart() throws InterruptedException 
     {
+    	 Thread.sleep(1000);
        
     	addToCart AC = new addToCart(driver);
      	AC.CartList();
      	AC.removeItem();
 
     }
+    @When("the user clicks on the cart, they should be navigated to the cart page.")
+    public void the_user_clicks_on_the_cart_they_should_be_navigated_to_the_cart_page()
     
+    {
+    	addToCart AC = new addToCart(driver);
+    	AC.CartList();
+    }
+
+    @Then("Delete button should be enabled")
+    public void the_system_should_indicate_if_the_delete_button_is_enabled_or_disabled()
     
-//    @When("the user clicks the plus button for the product quantity")
-//    public void the_user_clicks_the_plus_button_for_the_product_quantity() throws InterruptedException 
-//    
-//    {
-//    	
-//    	
-//    	    addToCart AC = new addToCart(driver);
-//    	    AC.CartList();
-//    	    
-//    	    List<WebElement> CartItems = driver.findElements(By.xpath("/html/body/app-root/div/app-shoppingcart/div/mat-card/table/tbody/tr/mat-card-content/td[2]/a"));
-//
-//    	    for (WebElement Element : CartItems) {
-//    	        String elementText = Element.getText();
-//    	        System.out.println("SearchedProduct:" + elementText);
-//
-//    	        if (elementText.equals("Roomies")) {
-//    	            WebElement plusButton = driver.findElement(By.xpath("/html/body/app-root/div/app-shoppingcart/div/mat-card/table/tbody/tr/mat-card-content/td[6]/button[2]")); // Find the plus button
-//    	            plusButton.click(); // Click on the plus button to increase the quantity
-//    	            System.out.println("Quantity increased");
-//
-//    	            // Optional: Verify that the quantity has been increased
-//    	            WebElement quantityElement = driver.findElement(By.xpath("/html/body/app-root/div/app-shoppingcart/div/mat-card/table/tbody/tr/mat-card-content/td[4]")); // Assuming this element contains the quantity
-//    	            String quantityText = quantityElement.getText();
-//    	            // Parse the quantity from the text and compare it to your expected quantity
-//    	            int currentQuantity = Integer.parseInt(quantityText);
-//    	            int expectedQuantity = 2; // Change this to your desired quantity
-//    	            if (currentQuantity == expectedQuantity) {
-//    	                System.out.println("Quantity is as expected: " + currentQuantity);
-//    	            } else {
-//    	                System.out.println("Quantity is not as expected. Current Quantity: " + currentQuantity);
-//    	            }
-//
-//    	            String msg = "Product removed from cart";
-//    	            
-//    	            // Check if the page text contains the message and print it
-//    	            String pageText = driver.findElement(By.tagName("body")).getText();
-//    	            if (pageText.contains(msg)) {
-//    	                System.out.println(msg);
-//    	            }
-//
-//    	            break;
-//    	        }
-//    	    }
-//    	
+    {
+       
+    	addToCart AC = new addToCart(driver);
+
+    	AC.getAllButtonsAndStates();
+    	
+    }
+    
+
 
 
     	          
     	        
  
-    	
+    @Then("the user should see a message indicating an empty cart")
+    public void the_user_should_see_a_message_indicating_an_empty_cart() throws InterruptedException
+    {
+Thread.sleep(10000);
+    
+addToCart Cart = new addToCart(driver);
+Cart.Empty();
+
+	
     	           
     	           
 
@@ -256,6 +238,6 @@ public class AddToCart {
     	
     	
     
-
+}
     
 

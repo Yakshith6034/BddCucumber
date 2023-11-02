@@ -2,7 +2,7 @@ Feature: User Registration Process
 
   Background: 
     Given the user navigate to the Cart application
-    Given user clicks on  login button
+    And user clicks on  login button
     When the user clicks on the Register button
 
   #Scenario to test successful user registration.
@@ -15,7 +15,7 @@ Feature: User Registration Process
     And the user select the Gender
     Then the user details should be saved successfully
 
-  Scenario: Password should contain both uppercase & lowercase Characters & Number
+  Scenario: Verify when user enters the only UpperCase letter in Password
     And the user enters the First Name
     And the user enters the Last Name
     And the user enters the User Name

@@ -40,6 +40,9 @@ public class Login {
 			System.out.println(driver.getTitle());
 		} catch (Exception e) {
 			e.printStackTrace();
+            System.err.println("An exception occurred: " + e.getMessage());
+
+			
 			// Handle the exception here or rethrow it if needed
 		}
 	}
@@ -53,12 +56,15 @@ public class Login {
 			Lp.UserName(Username);
 		} catch (Exception e) {
 			e.printStackTrace();
+            System.err.println("An exception occurred: " + e.getMessage());
+
 			// Handle the exception here or rethrow it if needed
 		}
 	}
 
 	@And("User enters the password")
-	public void user_enters_the_password() {
+	public void user_enters_the_password() 
+	{
 		try {
 			// Enter password
 			LoginPage Lp = new LoginPage(driver);
@@ -66,11 +72,13 @@ public class Login {
 			Lp.Password(Password);
 		} catch (Exception e) {
 			e.printStackTrace();
+            System.err.println("An exception occurred: " + e.getMessage());
+
 			// Handle the exception here or rethrow it if needed
 		}
 	}
 
-	@When("user clicks on Login button")
+	@When("user clicks on the login button")
 	public void user_clicks_on_login_button() {
 		try {
 			// Click on the login button to initiate the login process
@@ -79,6 +87,8 @@ public class Login {
 			Lp.LoginButton();
 		} catch (Exception e) {
 			e.printStackTrace();
+            System.err.println("An exception occurred: " + e.getMessage());
+
 			// Handle the exception here or rethrow it if needed
 		}
 	}
@@ -93,6 +103,8 @@ public class Login {
 			System.out.println(text);
 		} catch (Exception e) {
 			e.printStackTrace();
+            System.err.println("An exception occurred: " + e.getMessage());
+
 			// Handle the exception here or rethrow it if needed
 		}
 	}
@@ -106,6 +118,8 @@ public class Login {
 			Lp.UserName(Invalid_Username);
 		} catch (Exception e) {
 			e.printStackTrace();
+            System.err.println("An exception occurred: " + e.getMessage());
+
 			// Handle the exception here or rethrow it if needed
 		}
 	}
@@ -119,6 +133,8 @@ public class Login {
 			Lp.Password(Invalid_Password);
 		} catch (Exception e) {
 			e.printStackTrace();
+            System.err.println("An exception occurred: " + e.getMessage());
+
 			// Handle the exception here or rethrow it if needed
 		}
 	}
@@ -134,6 +150,8 @@ public class Login {
 			System.out.println(text);
 		} catch (Exception e) {
 			e.printStackTrace();
+            System.err.println("An exception occurred: " + e.getMessage());
+
 			// Handle the exception here or rethrow it if needed
 		}
 
@@ -148,6 +166,8 @@ public class Login {
 			System.out.println(text);
 		} catch (Exception e) {
 			e.printStackTrace();
+            System.err.println("An exception occurred: " + e.getMessage());
+
 			// Handle the exception here or rethrow it if needed
 		}
 	}
@@ -161,6 +181,8 @@ public class Login {
 			Lp.UserName(Username);
 		} catch (Exception e) {
 			e.printStackTrace();
+            System.err.println("An exception occurred: " + e.getMessage());
+
 			// Handle the exception here or rethrow it if needed
 		}
 	}
@@ -198,8 +220,10 @@ public class Login {
 			LoginPage Lp = new LoginPage(driver);
 			String Invalid_Password = ExcelUtilites.getCellValue(excelFilePath, "Sheet1", 4, 1);
 			Lp.Password(Invalid_Password);
-		} catch (Exception e) {
+		} catch (Exception e)
+		{
 			e.printStackTrace();
+			System.err.println("An exception occurred: " + e.getMessage());
 			// Handle the exception here or rethrow it if needed
 		}
 	}
@@ -213,6 +237,8 @@ public class Login {
 			System.out.println(text);
 		} catch (Exception e) {
 			e.printStackTrace();
+            System.err.println("An exception occurred: " + e.getMessage());
+
 			// Handle the exception here or rethrow it if needed
 		}
 	}
